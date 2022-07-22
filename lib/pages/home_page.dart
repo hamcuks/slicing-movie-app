@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/pages/detail_page.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -67,76 +68,85 @@ class MovieCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 200,
-      height: 336,
-      margin: const EdgeInsets.all(8),
-      clipBehavior: Clip.antiAliasWithSaveLayer,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
-        color: Colors.grey,
+    return GestureDetector(
+      onTap: () => Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => const DetailPage(),
+        ),
       ),
-      child: Stack(
-        children: [
-          Positioned(
-            top: 0,
-            right: 0,
-            left: 0,
-            bottom: 0,
-            child: Image.network(
-              'https://i.pinimg.com/736x/41/97/78/4197782e3796c8980cf50665ade542d2.jpg',
-              fit: BoxFit.cover,
-            ),
-          ),
-          Positioned(
-            left: 16,
-            bottom: 16,
-            right: 16,
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-              decoration: BoxDecoration(
-                color: Colors.grey,
-                borderRadius: BorderRadius.circular(20),
+      child: Container(
+        width: 200,
+        height: 336,
+        margin: const EdgeInsets.all(8),
+        clipBehavior: Clip.antiAliasWithSaveLayer,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          color: Colors.grey,
+        ),
+        child: Stack(
+          children: [
+            Positioned(
+              top: 0,
+              right: 0,
+              left: 0,
+              bottom: 0,
+              child: Image.network(
+                'https://i.pinimg.com/736x/41/97/78/4197782e3796c8980cf50665ade542d2.jpg',
+                fit: BoxFit.cover,
               ),
-              child: const Text(
-                'Star Wars: The Last Jedi',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
+            ),
+            Positioned(
+              left: 16,
+              bottom: 16,
+              right: 16,
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                decoration: BoxDecoration(
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.circular(20),
                 ),
-                textAlign: TextAlign.center,
+                child: const Text(
+                  'Star Wars: The Last Jedi',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
-          ),
-          Positioned(
-            top: 16,
-            right: 16,
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-              decoration: BoxDecoration(
-                color: Colors.grey,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Row(
-                children: const [
-                  Icon(
-                    Icons.star,
-                    color: Colors.amber,
-                  ),
-                  SizedBox(width: 8),
-                  Text(
-                    '4.8',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
+            Positioned(
+              top: 16,
+              right: 16,
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                decoration: BoxDecoration(
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  children: const [
+                    Icon(
+                      Icons.star,
+                      color: Colors.amber,
                     ),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
+                    SizedBox(width: 8),
+                    Text(
+                      '4.8',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
